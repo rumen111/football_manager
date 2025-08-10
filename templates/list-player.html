@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Players{% endblock %}
+{% block content %}
+<h2>All Players</h2>
+<p><a href="{% url 'create-player' %}" class="my-button">Add Player</a></p>
+<ul>
+  {% for p in players %}
+    <li>
+      <a href="{% url 'details-player' p.pk %}">{{ p.name }}</a>
+      — {{ p.get_position_display }} @ {{ p.team }}
+    </li>
+  {% empty %}
+    <li>No players yet.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Match{% endblock %}
+{% block content %}
+  <h2>{{ match.home_team }} vs {{ match.away_team }}</h2>
+  <p>Date: {{ match.match_date }}</p>
+  <p>Score: {{ match.score|default:"TBD" }}</p>
+
+  <p><a class="my-button" href="{% url 'edit-match' match.pk %}">Edit</a></p>
+  <form method="post" action="{% url 'delete-match' match.pk %}">
+    {% csrf_token %}
+    <button type="submit" class="my-button">Delete</button>
+  </form>
+{% endblock %}

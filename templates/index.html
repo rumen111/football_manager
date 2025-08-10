@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+  <h2>Welcome to Football Manager</h2>
+  <p>Manage teams, build squads, design tactics, and schedule matches.</p>
+
+  {% if user.is_authenticated %}
+    <p><a class="my-button" href="{% url 'dashboard' %}">Go to Dashboard</a></p>
+  {% else %}
+    <p>
+      <a class="my-button" href="{% url 'register' %}">Get Started</a>
+      <a class="my-button" href="{% url 'login' %}">Log In</a>
+    </p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}My Tactics{% endblock %}
+{% block content %}
+  <h2>My Tactics</h2>
+  <p><a class="my-button" href="{% url 'create-tactic' %}">Create Tactic</a></p>
+  <ul>
+    {% for t in tactics %}
+      <li><a href="{% url 'details-tactic' t.pk %}">{{ t.title }}</a> — {{ t.formation }}</li>
+    {% empty %}
+      <li>No tactics yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

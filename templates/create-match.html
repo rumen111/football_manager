@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Create Match{% endblock %}
+{% block content %}
+  <h2>Create Match</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="my-button">Save</button>
+    <a href="{% url 'list-match' %}">Cancel</a>
+  </form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Create Team{% endblock %}
+{% block content %}
+  <h2>Create Team</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="my-button">Save</button>
+    <a href="{% url 'list-team' %}">Cancel</a>
+  </form>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ player.name }}{% endblock %}
+{% block content %}
+<h2>{{ player.name }}</h2>
+<p>Position: {{ player.get_position_display }}</p>
+<p>Team: {{ player.team }}</p>
+<p>Age: {{ player.age }}</p>
+<p>Nationality: {{ player.nationality }}</p>
+
+<p>
+  <a href="{% url 'edit-player' player.pk %}" class="my-button">Edit</a>
+  <a href="{% url 'delete-player' player.pk %}" class="my-button">Delete</a>
+</p>
+{% endblock %}

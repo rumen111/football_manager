@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Teams{% endblock %}
+{% block content %}
+  <h2>Teams</h2>
+  {% if user.is_authenticated %}
+    <p><a class="my-button" href="{% url 'create-team' %}">Create Team</a></p>
+  {% endif %}
+  <ul>
+    {% for t in teams %}
+      <li>
+        <a href="{% url 'details-team' t.pk %}">{{ t.name }}</a> — {{ t.city }}
+      </li>
+    {% empty %}
+      <li>No teams yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
