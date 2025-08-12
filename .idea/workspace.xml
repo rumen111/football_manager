@@ -5,23 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2eb43208-006b-4425-9ba2-7c9f3082fe02" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/DjangoProject8.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DjangoProject8/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DjangoProject8/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DjangoProject8/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DjangoProject8/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DjangoProject8/wsgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/accounts/signals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register-accounts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/delete-match.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/squad-team.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matches/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/matches/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matches/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/matches/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matches/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/matches/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/matches/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/matches/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/players/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/players/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/players/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/players/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/players/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/players/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/teams/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/teams/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/create-player.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create-player.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/delete-player.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/delete-player.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/delete-team.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/delete-team.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/details-match.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/details-match.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/details-tactic.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/details-tactic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/details-team.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/details-team.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edit-player.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edit-player.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edit-team.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edit-team.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list-match.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list-match.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list-tactic.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list-tactic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/list-team.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/list-team.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,47 +38,48 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="3106f29srp37SHf5aQfdg89dgTl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
-    "git-widget-placeholder": "master",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR_AND_PREVIEW&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rumen/PycharmProjects/DjangoProject8&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="DjangoProject8" type="Python.DjangoServer" factoryName="Django server">
       <module name="DjangoProject8" />
@@ -114,6 +122,11 @@
       <option name="presentableId" value="Default" />
       <updated>1754648743006</updated>
       <workItem from="1754648744200" duration="6843000" />
+      <workItem from="1754819034742" duration="10227000" />
+      <workItem from="1754835556134" duration="2857000" />
+      <workItem from="1754906368747" duration="19786000" />
+      <workItem from="1754978106906" duration="417000" />
+      <workItem from="1754978567040" duration="663000" />
     </task>
     <servers />
   </component>

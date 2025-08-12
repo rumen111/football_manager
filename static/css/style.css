@@ -75,3 +75,20 @@ footer {
   text-decoration: underline;
 }
 .link-button:hover { text-decoration: none; }
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 0 0 8px; /* a bit of spacing after Edit */
+  color: #0d6efd;    /* link-ish blue to match anchors */
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.link-button:hover {
+  text-decoration: none;
+}
+
+.coach-star { color: #e5533d; font-weight: 700; margin-right: 6px; }
+.legend { margin-top: 8px; font-size: 0.95rem; color: #555; }

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}Squad – {{ team.name }}{% endblock %}
+{% block content %}
+  <h2>Squad – {{ team.name }}</h2>
+
+  {% if is_owner %}
+    <p><a class="my-button" href="{% url 'create-player-for-team' team.pk %}">Add player</a></p>
+  {% endif %}
+
+  {% if players %}
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Age</th>
+          <th>Nationality</th>
+          {% if is_owner %}<th>Actions</th>{% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in players %}
+          <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.position }}</td>
+            <td>{{ p.age }}</td>
+            <td>{{ p.nationality }}</td>
+            {% if is_owner %}
+              <td>
+    <a class="my-button" href="{% url 'edit-player' p.pk %}">Edit</a>
+    <a class="my-button" href="{% url 'delete-player' p.pk %}">Delete</a>
+  </td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p><em>There are currently no players on the team.</em></p>
+  {% endif %}
+
+  <p><a href="{% url 'details-team' team.pk %}">Back to team</a></p>
+{% endblock %}

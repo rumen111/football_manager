@@ -1,18 +1,30 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Teams{% endblock %}
+{% block title %}All Teams{% endblock %}
+
 {% block content %}
-  <h2>Teams</h2>
+  <h2>All Teams</h2>
+
   {% if user.is_authenticated %}
     <p><a class="my-button" href="{% url 'create-team' %}">Create Team</a></p>
   {% endif %}
+
   <ul>
     {% for t in teams %}
       <li>
+        {% if user.is_authenticated and t.coach_id == user.id %}
+          <span class="coach-star" title="You are the coach">*</span>
+        {% endif %}
         <a href="{% url 'details-team' t.pk %}">{{ t.name }}</a> — {{ t.city }}
       </li>
     {% empty %}
       <li>No teams yet.</li>
     {% endfor %}
   </ul>
+
+  {% if user.is_authenticated %}
+    <p class="legend"><span class="coach-star">*</span> you are the coach of this team.</p>
+  {% endif %}
+
+  <p><a href="{% url 'dashboard' %}">← Back to Dashboard</a></p>
 {% endblock %}

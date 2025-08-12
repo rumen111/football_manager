@@ -1,12 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Edit {{ view.object.name }}{% endblock %}
+
 {% block content %}
   <h2>Edit {{ view.object.name }}</h2>
-  <form method="post" enctype="multipart/form-data">
+
+  <form method="post" enctype="multipart/form-data" style="display:inline;">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="my-button">Save</button>
-    <a href="{% url 'details-team' view.object.pk %}">Cancel</a>
   </form>
+
+  <form action="{% url 'details-team' view.object.pk %}" method="get" style="display:inline;">
+    <button type="submit" class="my-button">Cancel</button>
+  </form>
+
+  <hr>
+  <h3>Manage Players</h3>
+  <p><a class="my-button" href="{% url 'squad-team' view.object.pk %}">View squad</a></p>
+
+  {% if user == view.object.coach %}
+    <p><a class="my-button" href="{% url 'create-player-for-team' view.object.pk %}">Add player</a></p>
+  {% endif %}
 {% endblock %}

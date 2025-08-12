@@ -4,10 +4,23 @@
 {% block content %}
   <h2>My Dashboard</h2>
 
-  <!-- Teams -->
-  <section style="margin-top: 16px;">
-    <h3>My Teams</h3>
-    <p><a class="my-button" href="{% url 'create-team' %}">Create Team</a></p>
+  {# -------------------- TEAMS -------------------- #}
+  <section style="margin-top:16px;">
+
+
+    {% with my_teams_count=my_teams|length %}
+      <p>
+        <a class="my-button" href="{% url 'list-team' %}">View All Teams</a>
+        {% if my_teams_count < 2 %}
+          <a class="my-button" href="{% url 'create-team' %}">Create Team</a>
+        {% endif %}
+      </p>
+<h3>My Teams</h3>
+      {% if my_teams_count >= 2 %}
+        <p><em>You already have 2 teams. You cannot create more.</em></p>
+      {% endif %}
+    {% endwith %}
+
     {% if my_teams %}
       <div class="card-grid">
         {% for t in my_teams %}
@@ -23,15 +36,20 @@
     {% endif %}
   </section>
 
-  <!-- Upcoming / recent matches -->
-  <section style="margin-top: 24px;">
-    <h3>My Matches</h3>
-    <p><a class="my-button" href="{% url 'create-match' %}">Schedule Match</a></p>
+  {# -------------------- MATCHES (staff/superuser only) -------------------- #}
+  {% if perms.matches.schedule_match %}
+  <section style="margin-top:24px;">
+    <h3>Matches</h3>
+    <p>
+      <a class="my-button" href="{% url 'list-match' %}">All Matches</a>
+      <a class="my-button" href="{% url 'create-match' %}">Schedule Match</a>
+    </p>
+
     {% if my_matches %}
       <ul>
         {% for m in my_matches %}
           <li>
-            <a href="{% url 'details-match' m.pk %}">
+            <a href="{% url 'list-match' m.pk %}">
               {{ m.home_team }} vs {{ m.away_team }} — {{ m.match_date }}
             </a>
           </li>
@@ -41,11 +59,13 @@
       <p>No matches yet.</p>
     {% endif %}
   </section>
+  {% endif %}
 
-  <!-- Tactics -->
-  <section style="margin-top: 24px;">
+  {# -------------------- TACTICS -------------------- #}
+  <section style="margin-top:24px;">
     <h3>My Tactics</h3>
     <p><a class="my-button" href="{% url 'create-tactic' %}">Create Tactic</a></p>
+
     {% if my_tactics %}
       <ul>
         {% for t in my_tactics %}

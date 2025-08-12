@@ -8,6 +8,11 @@ class Match(models.Model):
     match_date = models.DateField()
     score = models.CharField(max_length=20, blank=True)
 
+    class Meta:
+        permissions = [
+            ("schedule_match", "Can schedule matches"),
+        ]
+
     def clean(self):
         super().clean()
         if self.home_team_id and self.away_team_id and self.home_team_id == self.away_team_id:

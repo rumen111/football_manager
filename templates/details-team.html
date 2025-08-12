@@ -1,19 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}{{ team.name }}{% endblock %}
+
 {% block content %}
   <h2>{{ team.name }}</h2>
+
+
   <p>City: {{ team.city }}</p>
   <p>Founded: {{ team.founded_year }}</p>
   {% if team.logo %}
     <p><img src="{{ team.logo.url }}" alt="{{ team.name }}" style="max-width:150px;"></p>
   {% endif %}
 
+  <p><strong>Number of players:</strong> {{ player_count }}</p>
+  <p><a class="my-button" href="{% url 'squad-team' team.pk %}">View squad</a></p>
+
   {% if user == team.coach %}
-    <p><a class="my-button" href="{% url 'edit-team' team.pk %}">Edit</a></p>
-    <form method="post" action="{% url 'delete-team' team.pk %}">
-      {% csrf_token %}
-      <button type="submit" class="my-button">Delete</button>
-    </form>
+    <p>
+      <a class="my-button" href="{% url 'edit-team' team.pk %}">Edit Team</a>
+
+      {# Delete stays POST for safety, but looks like a link #}
+      <a class="my-button" href="{% url 'delete-team' team.pk %}">Delete Team</a>
+
+    </p>
   {% endif %}
+
+      <p><a href="{% url 'dashboard' %}">← Back to dashboard</a></p>
 {% endblock %}

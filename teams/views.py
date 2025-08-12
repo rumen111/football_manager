@@ -1,10 +1,11 @@
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
+from players.models import Player
 from .models import Team
 from .forms import TeamForm
 
@@ -19,6 +20,12 @@ class TeamDetailView(DetailView):
     model = Team
     template_name = 'details-team.html'
     context_object_name = 'team'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        team = self.object
+        context['player_count'] = Player.objects.filter(team=team).count()
+        return context
 
 
 class TeamCreateView(LoginRequiredMixin, CreateView):
@@ -47,13 +54,12 @@ class TeamUpdateView(LoginRequiredMixin, UpdateView):
         return super().dispatch(request, *args, **kwargs)
 
 
-class TeamDeleteView(LoginRequiredMixin, View):
-    def post(self, request, pk):
-        team = get_object_or_404(Team, pk=pk)
-        if team.coach != request.user:
-            messages.error(request, "You can delete only your own team.")
-            return redirect('details-team', pk=pk)
-        team.delete()
-        messages.success(request, "Team deleted.")
-        return redirect('list-team')
+class TeamDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Team
+    template_name = 'delete-team.html'  # The confirmation template
+    success_url = reverse_lazy('list-team')
+
+    def test_func(self):
+        # Only allow deletion if current user is the coach
+        return self.get_object().coach == self.request.user
 

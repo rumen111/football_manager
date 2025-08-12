@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
 {% block title %}{{ tactic.title }}{% endblock %}
+
 {% block content %}
   <h2>{{ tactic.title }}</h2>
   <p><strong>Formation:</strong> {{ tactic.formation }}</p>
   <p>{{ tactic.description }}</p>
 
-  <p><a class="my-button" href="{% url 'edit-tactic' tactic.pk %}">Edit</a></p>
-  <form method="post" action="{% url 'delete-tactic' tactic.pk %}">
+  <form action="{% url 'edit-tactic' tactic.pk %}" method="get" style="display:inline;">
+    <button type="submit" class="my-button">Edit</button>
+  </form>
+
+  <form method="post" action="{% url 'delete-tactic' tactic.pk %}" style="display:inline;">
     {% csrf_token %}
     <button type="submit" class="my-button">Delete</button>
   </form>
+
+  <p><a href="{% url 'dashboard' %}">← Back to dashboard</a></p>
 {% endblock %}

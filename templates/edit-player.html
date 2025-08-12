@@ -9,6 +9,6 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="my-button">Save</button>
-    <a href="{% url 'player-detail' view.object.pk %}">Cancel</a>
+    <a href="{% url 'squad-team' view.object.pk %}">Cancel</a>
   </form>
 {% endblock %}
