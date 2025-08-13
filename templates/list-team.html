@@ -5,7 +5,7 @@
 {% block content %}
   <h2>All Teams</h2>
 
-  {% if user.is_authenticated %}
+  {% if user.is_authenticated and user.teams.count < 2 %}
     <p><a class="my-button" href="{% url 'create-team' %}">Create Team</a></p>
   {% endif %}
 

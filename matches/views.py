@@ -6,14 +6,14 @@ from django.contrib import messages
 from .models import Match
 from .forms import MatchForm
 
-class MatchListView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
+class MatchListView(LoginRequiredMixin, ListView):
     model = Match
     template_name = 'list-match.html'
     context_object_name = 'matches'
     permission_required = ('matches.view_match',)  # or 'matches.schedule_match'
     raise_exception = True
 
-class MatchDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
+class MatchDetailView(LoginRequiredMixin, DetailView):
     model = Match
     template_name = 'details-match.html'
     context_object_name = 'match'

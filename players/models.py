@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -14,7 +15,9 @@ class Player(models.Model):
 
     name = models.CharField(max_length=100)
     team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='players')
-    age = models.IntegerField()
+    age = models.PositiveSmallIntegerField(
+        validators=[MinValueValidator(12, message="Minimum age is 12.")]
+    )
     position = models.CharField(max_length=2, choices=POSITION_CHOICES)
     nationality = models.CharField(max_length=100, default='Unknown')
 

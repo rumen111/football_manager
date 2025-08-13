@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
 {% block title %}{{ view.object|default:'Create Tactic' }}{% endblock %}
+
 {% block content %}
   <h2>{{ view.object|default:'Create Tactic' }}</h2>
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="my-button">Save</button>
-    <a href="{% url 'list-tactic' %}">Cancel</a>
+    <button type="button" class="my-button" onclick="window.location.href='{% url 'list-tactic' %}'">
+      Cancel
+    </button>
   </form>
 {% endblock %}

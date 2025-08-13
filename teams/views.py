@@ -30,12 +30,15 @@ class TeamDetailView(DetailView):
 
 class TeamCreateView(LoginRequiredMixin, CreateView):
     model = Team
-    form_class = TeamForm
+    fields = ['name', 'city', 'founded_year', 'logo']
     template_name = 'create-team.html'
     success_url = reverse_lazy('list-team')
 
     def form_valid(self, form):
         form.instance.coach = self.request.user
+        if Team.objects.filter(coach=self.request.user).count() >= 2:
+            form.add_error(None, "You cannot create more than 2 teams.")
+            return self.form_invalid(form)
         return super().form_valid(form)
 
 

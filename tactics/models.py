@@ -1,6 +1,5 @@
 from django.db import models
 from accounts.models import Profile
-from django.contrib.auth.models import User
 
 class Tactic(models.Model):
     FORMATION_CHOICES = [
@@ -13,12 +12,13 @@ class Tactic(models.Model):
     ]
 
     title = models.CharField(max_length=100)
-    formation = models.CharField(
-        max_length=50,
-        choices=FORMATION_CHOICES,
-    )
+    formation = models.CharField(max_length=50, choices=FORMATION_CHOICES)
     description = models.TextField()
-    created_by = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    created_by = models.OneToOneField(
+        Profile,
+        on_delete=models.CASCADE,
+        related_name="tactic",
+    )
 
     def __str__(self):
         return f"{self.title} ({self.formation})"

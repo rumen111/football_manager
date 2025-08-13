@@ -7,7 +7,6 @@
   {# -------------------- TEAMS -------------------- #}
   <section style="margin-top:16px;">
 
-
     {% with my_teams_count=my_teams|length %}
       <p>
         <a class="my-button" href="{% url 'list-team' %}">View All Teams</a>
@@ -15,7 +14,7 @@
           <a class="my-button" href="{% url 'create-team' %}">Create Team</a>
         {% endif %}
       </p>
-<h3>My Teams</h3>
+      <h3>My Teams</h3>
       {% if my_teams_count >= 2 %}
         <p><em>You already have 2 teams. You cannot create more.</em></p>
       {% endif %}
@@ -36,35 +35,25 @@
     {% endif %}
   </section>
 
-  {# -------------------- MATCHES (staff/superuser only) -------------------- #}
-  {% if perms.matches.schedule_match %}
+  {# -------------------- MATCHES -------------------- #}
   <section style="margin-top:24px;">
     <h3>Matches</h3>
     <p>
       <a class="my-button" href="{% url 'list-match' %}">All Matches</a>
-      <a class="my-button" href="{% url 'create-match' %}">Schedule Match</a>
+      {% if perms.matches.add_match %}
+        <a class="my-button" href="{% url 'create-match' %}">Schedule Match</a>
+      {% endif %}
     </p>
-
-    {% if my_matches %}
-      <ul>
-        {% for m in my_matches %}
-          <li>
-            <a href="{% url 'list-match' m.pk %}">
-              {{ m.home_team }} vs {{ m.away_team }} — {{ m.match_date }}
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p>No matches yet.</p>
-    {% endif %}
   </section>
-  {% endif %}
 
   {# -------------------- TACTICS -------------------- #}
   <section style="margin-top:24px;">
     <h3>My Tactics</h3>
-    <p><a class="my-button" href="{% url 'create-tactic' %}">Create Tactic</a></p>
+
+    {# Show "Create Tactic" only if the user has none #}
+    {% if not my_tactics %}
+      <p><a class="my-button" href="{% url 'create-tactic' %}">Create Tactic</a></p>
+    {% endif %}
 
     {% if my_tactics %}
       <ul>
