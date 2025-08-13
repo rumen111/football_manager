@@ -104,6 +104,5 @@ python manage.py runserver
 ## Live demo
 https://rumen111.pythonanywhere.com
 
-## Live demo
-https://rumen111.pythonanywhere.com
+
 
